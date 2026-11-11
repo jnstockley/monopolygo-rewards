@@ -1,0 +1,39 @@
+[build-system]
+requires = ["setuptools>=80"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "monopolygo-rewards"
+version = "0.1.0"
+description = "Single-account MONOPOLY GO free daily rewards worker"
+readme = "README.md"
+requires-python = ">=3.15,<3.16"
+dependencies = [
+    "apprise==2.2.0",
+    "playwright==1.64.1",
+    "python-dotenv==1.2.4",
+]
+
+[project.scripts]
+monopolygo-rewards = "monopolygo_rewards.cli:main"
+
+[dependency-groups]
+dev = ["pytest>=9.2,<10", "ruff>=0.17,<0.18", "mypy>=2.4,<3"]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests/unit"]
+pythonpath = ["src"]
+
+[tool.ruff]
+line-length = 100
+
+[tool.ruff.lint]
+select = ["E4", "E7", "E9", "F", "I", "UP"]
+
+[tool.mypy]
+python_version = "3.15"
+check_untyped_defs = true
+warn_unused_ignores = true

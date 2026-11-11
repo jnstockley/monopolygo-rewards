@@ -1,0 +1,13 @@
+**
+!pyproject.toml
+!uv.lock
+!README.md
+!src/
+!src/monopolygo_rewards/
+!src/monopolygo_rewards/**
+**/__pycache__
+**/*.pyc
+**/.env*
+**/*.har
+**/*.cookies
+**/*.egg-info

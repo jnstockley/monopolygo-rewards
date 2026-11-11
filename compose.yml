@@ -1,0 +1,17 @@
+services:
+  rewards:
+    build:
+      context: .
+    image: monopolygo-rewards:local
+    init: true
+    env_file: .env
+    environment:
+      DATA_DIR: /app/data
+      ARTIFACT_DIR: /app/artifacts
+    volumes:
+      - ${HOST_DATA_DIR:-./data}:/app/data
+      - ${HOST_ARTIFACT_DIR:-./artifacts}:/app/artifacts
+      - ${HOST_LOG_DIR:-./logs}:/app/logs
+    shm_size: 1gb
+    stop_grace_period: ${CONTAINER_STOP_GRACE_PERIOD:-30s}
+    restart: unless-stopped
