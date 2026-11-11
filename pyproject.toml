@@ -18,7 +18,12 @@ dependencies = [
 monopolygo-rewards = "monopolygo_rewards.cli:main"
 
 [dependency-groups]
-dev = ["pytest>=9.2,<10", "ruff>=0.17,<0.18", "mypy>=2.4,<3"]
+dev = [
+    "pytest>=9.2,<10",
+    "ruff>=0.17,<0.18",
+    "mypy>=2.4,<3",
+    "pytest-cov>=7.1.0",
+]
 
 [tool.setuptools.packages.find]
 where = ["src"]
